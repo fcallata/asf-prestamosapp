@@ -1,0 +1,67 @@
+<div class="container mt-5">      
+  <div class="row">   
+    <div class="col-md-2"></div>
+    <div class="col-md-8">      
+    <form [formGroup]="prestamoForm" novalidate (ngSubmit)="onSubmit(prestamoForm.value)">
+      <!-- <div class="alert alert-danger" role="alert">
+        This is a danger alert—check it out!
+      </div> -->
+      <div class="form-row">          
+        <div class="form-group col-md-4">
+          <label for="inputIdPrestamo">Nro de Prestamo</label>
+          <input type="number" class="form-control" id="inputIdPrestamo" disabled value="{{numeroPrestamo}}"/>
+        </div>
+        <div class="form-group col-md-4">
+          <label for="inputValor">Valor Prestamo</label>
+          <!--is-invalid-->
+          <input type="number" class="form-control" id="inputValor" ng-pattern="/^[0-9]+(\.[0-9]{1,2})?$/" step="0.01" formControlName="valorPrestamo" />            
+        </div>
+        <!-- <div class="col-sm-3">
+            <small id="passwordHelp" class="text-danger">
+              Must be 8-20 characters long.
+            </small>      
+          </div> -->
+        <div class="form-group col-md-4">
+          <label for="inputDni">DNI</label>
+          <input type="number" class="form-control" id="inputDni" formControlName="nroIdentificacion" />            
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group col-md-4">
+          <label for="inputNombre">Nombre</label>
+          <input type="text" class="form-control" id="inputNombre" formControlName="nombre" />
+        </div>
+        <div class="form-group col-md-4">
+          <label for="inputApellido1">1° Apellido</label>
+          <input type="text" class="form-control" id="inputApellido1" formControlName="primerApellido" />
+        </div>
+        <div class="form-group col-md-4">
+          <label for="inputApellido2">2° Apellido</label>
+          <input type="text" class="form-control" id="inputApellido2" formControlName="segundoApellido" />
+        </div>
+      </div>
+      
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="inputTelCasa">Telefono casa</label>
+          <input type="text" class="form-control" id="inputTelCasa" formControlName="telCasa" />
+        </div>
+        <div class="form-group col-md-6">
+          <label for="inputTelMovil">Telefono movil</label>
+          <input type="text" class="form-control" id="inputTelMovil" formControlName="telMovil" />
+        </div>
+      </div>
+
+      <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="inputAutorizacion">Fecha autorización</label>
+            <input type="text" class="form-control" id="inputAutorizacion" formControlName="fechaAutorizacion" />
+          </div>           
+        </div>
+      <button class="btn btn-primary" [disabled]="!prestamoForm.valid">Aceptar</button>
+    </form>
+    </div>
+    <div class="col-md-2"></div>
+  </div>
+</div>
